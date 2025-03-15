@@ -15,6 +15,7 @@ offset_right = 640.0
 offset_bottom = 360.0
 grow_horizontal = 2
 grow_vertical = 2
+
 texture = ExtResource("1_j6w7d")
 
 [node name="PlieOfBones" parent="." instance=ExtResource("1_paw1w")]

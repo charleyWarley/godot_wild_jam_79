@@ -5,8 +5,8 @@
 [ext_resource type="Script" uid="uid://g5nwaj0fqwu0" path="res://scripts/interact_area.gd" id="3_qhqgy"]
 [ext_resource type="Script" uid="uid://bmbbd1ya42ta7" path="res://scripts/player_sfx_manager.gd" id="4_dqkch"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_x4b8f"]
-size = Vector2(9.5, 12)
+[sub_resource type="CircleShape2D" id="CircleShape2D_dqkch"]
+radius = 6.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
 size = Vector2(36, 46)
@@ -54,7 +54,7 @@ offset = Vector2(0, -24)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)
-shape = SubResource("RectangleShape2D_x4b8f")
+shape = SubResource("CircleShape2D_dqkch")
 
 [node name="InteractArea" type="Area2D" parent="."]
 script = ExtResource("3_qhqgy")
@@ -67,10 +67,10 @@ shape = SubResource("RectangleShape2D_g2els")
 script = ExtResource("4_dqkch")
 
 [node name="SFX1" type="AudioStreamPlayer2D" parent="SFXManager"]
-volume_db = -7.488
+volume_db = -13.312
 
 [node name="SFX2" type="AudioStreamPlayer2D" parent="SFXManager"]
-volume_db = -6.656
+volume_db = -13.312
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
