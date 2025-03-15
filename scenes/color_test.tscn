@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://g6jkf1bfy4lg"]
+
+[node name="Control" type="ColorRect"]
+custom_minimum_size = Vector2(800, 480)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -640.0
+offset_top = -360.0
+offset_right = 640.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2

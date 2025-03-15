@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://7mrkonnxbxse"]
+
+[ext_resource type="Script" uid="uid://b166gonbcvb01" path="res://scripts/plie_of_bones.gd" id="1_6yjla"]
+[ext_resource type="Texture2D" uid="uid://bytbkg85b4twi" path="res://images/pile_of_bones1.png" id="1_eqteo"]
+[ext_resource type="Texture2D" uid="uid://kghrunjeb337" path="res://images/pile_of_bones_shadow1.png" id="2_cocqa"]
+[ext_resource type="AudioStream" uid="uid://dwbiot5bt4qf2" path="res://audio/carpetstep3.mp3" id="4_aob3u"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cocqa"]
+radius = 7.5
+height = 22.0
+
+[node name="PileOfBones" type="StaticBody2D"]
+script = ExtResource("1_6yjla")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_eqteo")
+
+[node name="Shadow" type="Sprite2D" parent="Sprite2D"]
+z_as_relative = false
+position = Vector2(-1, 4)
+texture = ExtResource("2_cocqa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 1.5)
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_cocqa")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+lifetime = 0.39
+one_shot = true
+explosiveness = 0.84
+randomness = 0.36
+fixed_fps = 24
+direction = Vector2(0, -1)
+spread = 8.36
+initial_velocity_min = 221.24
+initial_velocity_max = 221.24
+
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_aob3u")
+volume_db = -10.816
+pitch_scale = 1.61
