@@ -1,10 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://mqeuqgx0io73"]
 
+[ext_resource type="Texture2D" uid="uid://sbu6mus85uwr" path="res://images/background1.png" id="1_j6w7d"]
 [ext_resource type="PackedScene" uid="uid://7mrkonnxbxse" path="res://scenes/plie_of_bones.tscn" id="1_paw1w"]
 [ext_resource type="PackedScene" uid="uid://7g2isxnwrwpy" path="res://scenes/player.tscn" id="2_paw1w"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2venv"]
-load_path = "res://.godot/imported/background1.png-c44fcc714f63e037e4b075a3805265f1.ctex"
 
 [node name="TestLevel" type="Node2D"]
 y_sort_enabled = true
@@ -17,7 +15,7 @@ offset_right = 640.0
 offset_bottom = 360.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("CompressedTexture2D_2venv")
+texture = ExtResource("1_j6w7d")
 
 [node name="PlieOfBones" parent="." instance=ExtResource("1_paw1w")]
 z_index = 1
