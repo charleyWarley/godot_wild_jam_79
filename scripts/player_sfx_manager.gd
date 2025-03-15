@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 
 const SOUNDS := {
 	"step1": preload("res://audio/carpetstep6.mp3"),

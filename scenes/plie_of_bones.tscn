@@ -37,7 +37,7 @@ spread = 8.36
 initial_velocity_min = 221.24
 initial_velocity_max = 221.24
 
-[node name="SFX" type="AudioStreamPlayer" parent="."]
+[node name="SFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_aob3u")
 volume_db = -10.816
 pitch_scale = 1.61
