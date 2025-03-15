@@ -8,4 +8,3 @@
 ## Jaret
 - lead programmer
 - professional 😔
-

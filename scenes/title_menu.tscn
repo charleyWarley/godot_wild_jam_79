@@ -1,0 +1,92 @@
+[gd_scene load_steps=10 format=3 uid="uid://dgpd66jdxe4b3"]
+
+[ext_resource type="Script" uid="uid://bdbk0qe46x6ks" path="res://scripts/title_menu.gd" id="1_ij6cu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ij6cu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_she06"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a2du2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m3le7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x5lbp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6gi7b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_brrgq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qx5l0"]
+
+[node name="TitleMenu" type="ColorRect" node_paths=PackedStringArray("PLAY_BUTTON", "SETTINGS_BUTTON")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.211765, 0.313726, 0.364706, 1)
+script = ExtResource("1_ij6cu")
+PLAY_BUTTON = NodePath("CenterContainer/VBoxContainer/MarginContainer/VBoxContainer/PlayButton")
+SETTINGS_BUTTON = NodePath("CenterContainer/VBoxContainer/MarginContainer/VBoxContainer/SettingsButton")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 34
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(640, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 80
+bbcode_enabled = true
+text = "[center]Moss in Space !![/center]"
+fit_content = true
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="PlayButton" type="Button" parent="CenterContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_hover_pressed_color = Color(0.770136, 0.188477, 0.1363, 1)
+theme_override_colors/font_hover_color = Color(0.770136, 0.188477, 0.1363, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ij6cu")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_she06")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_a2du2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_m3le7")
+text = "Play"
+
+[node name="SettingsButton" type="Button" parent="CenterContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_hover_pressed_color = Color(0.770136, 0.188477, 0.1363, 1)
+theme_override_colors/font_hover_color = Color(0.770136, 0.188477, 0.1363, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_x5lbp")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_6gi7b")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_brrgq")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qx5l0")
+text = "Settings"
