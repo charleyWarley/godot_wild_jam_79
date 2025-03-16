@@ -8,7 +8,7 @@ var current_volume := 0
 @onready var PARTICLES := $CPUParticles2D
 @onready var SPRITE := $Sprite2D
 @onready var SFX := $SFX
-
+@onready var COLLISION_SHAPE := $CollisionShape2D
 
 func _ready() -> void:
 	if not bone_index in Interactables.bones:
@@ -31,6 +31,7 @@ func destroy() -> void:
 	Interactables.bones.erase(bone_index)
 	SPRITE.visible = false
 	PARTICLES.emitting = true
+	COLLISION_SHAPE.queue_free()
 	await PARTICLES.finished
 	queue_free()
 
