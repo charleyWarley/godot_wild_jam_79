@@ -10,9 +10,13 @@
 script = ExtResource("1_gvdht")
 
 [node name="AreaTransitionArea" parent="." instance=ExtResource("2_ogk63")]
-position = Vector2(321, 406)
+position = Vector2(321, 394)
 next_area_name = "area1"
 enter_from = 0
+
+[node name="AreaTransitionArea2" parent="." instance=ExtResource("2_ogk63")]
+position = Vector2(321, -11)
+next_area_name = "area4"
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 40.0
@@ -20,7 +24,7 @@ offset_bottom = 40.0
 texture = ExtResource("1_53kfc")
 
 [node name="Player" parent="." instance=ExtResource("2_vrlyv")]
-position = Vector2(396, 334)
+position = Vector2(396, 363)
 
 [node name="Bones" type="Node2D" parent="."]
 

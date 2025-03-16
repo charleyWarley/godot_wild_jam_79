@@ -21,10 +21,16 @@ grow_vertical = 2
 texture = ExtResource("1_ympyk")
 
 [node name="Player" parent="." instance=ExtResource("3_anqp6")]
-position = Vector2(293, 204)
+position = Vector2(637, 212)
 
 [node name="AreaTransitionArea" parent="." instance=ExtResource("5_anqp6")]
 position = Vector2(319, -6)
+
+[node name="AreaTransitionArea2" parent="." instance=ExtResource("5_anqp6")]
+position = Vector2(666, 151)
+rotation = -1.57079
+next_area_name = "area3"
+enter_from = 2
 
 [node name="Node2D" type="Node2D" parent="."]
 

@@ -4,6 +4,8 @@ const SCREENS := {
 	"title_menu": preload("res://scenes/title_menu.tscn"),
 	"area1": preload("res://scenes/level_area1.tscn"),
 	"area2": preload("res://scenes/level_area2.tscn"),
+	"area3": preload("res://scenes/level_area3.tscn"),
+	"area4": preload("res://scenes/level_area4.tscn"),
 	}
 
 var current_screen : Node
