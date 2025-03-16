@@ -7,8 +7,15 @@ const SOUNDS := {
 	"step4": preload("res://audio/carpetstep2.mp3")
 }
 
+var current_volume := 0
+
 @onready var SFX1 := $SFX1
 @onready var SFX2 := $SFX2
+
+
+func _process(_delta: float) -> void:
+	check_volume()
+
 
 func play_sound(sound_name: String, pitch_scale:=1.0) -> void:
 	if not sound_name in SOUNDS:
@@ -23,8 +30,16 @@ func play_sound(sound_name: String, pitch_scale:=1.0) -> void:
 		SFX1.set_stream(SOUNDS[sound_name])
 		SFX1.play()
 
+
 func play_walk_sound() -> void:
 	randomize()
 	var step_index := randi_range(1, 4)
 	var random_pitch := randf_range(0.85, 1.15)
 	play_sound("step" + str(step_index), random_pitch)
+
+
+func check_volume() -> void:
+	if current_volume == Settings.sfx_volume: return
+	current_volume = Settings.sfx_volume
+	SFX1.volume_db = current_volume
+	SFX2.volume_db = current_volume

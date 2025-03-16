@@ -24,7 +24,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.211765, 0.313726, 0.364706, 1)
+color = Color(0.493873, 0.569351, 0.498858, 1)
 script = ExtResource("1_ij6cu")
 PLAY_BUTTON = NodePath("CenterContainer/VBoxContainer/MarginContainer/VBoxContainer/PlayButton")
 SETTINGS_BUTTON = NodePath("CenterContainer/VBoxContainer/MarginContainer/VBoxContainer/SettingsButton")
@@ -49,7 +49,7 @@ size_flags_vertical = 3
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 80
 bbcode_enabled = true
-text = "[center]Moss in Space !![/center]"
+text = "[center][wave][color=darkgreen]Moss[/color] in Space ![/wave]![/center]"
 fit_content = true
 
 [node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer"]
@@ -64,10 +64,10 @@ theme_override_constants/separation = 14
 [node name="PlayButton" type="Button" parent="CenterContainer/VBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_colors/font_hover_pressed_color = Color(0.770136, 0.188477, 0.1363, 1)
-theme_override_colors/font_hover_color = Color(0.770136, 0.188477, 0.1363, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.768627, 0.188235, 0.137255, 1)
+theme_override_colors/font_hover_color = Color(0.77, 0.402967, 0.3696, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.768627, 0.188235, 0.137255, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 40
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ij6cu")
@@ -80,9 +80,9 @@ text = "Play"
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_colors/font_hover_pressed_color = Color(0.770136, 0.188477, 0.1363, 1)
-theme_override_colors/font_hover_color = Color(0.770136, 0.188477, 0.1363, 1)
+theme_override_colors/font_hover_color = Color(0.77, 0.402967, 0.3696, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.768627, 0.188235, 0.137255, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 40
 theme_override_styles/focus = SubResource("StyleBoxEmpty_x5lbp")
