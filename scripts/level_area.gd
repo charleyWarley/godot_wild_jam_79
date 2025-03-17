@@ -4,4 +4,4 @@ extends Node2D
 
 func set_player_position(player_position: Vector2, direction_name: String) -> void:
 	player.position = player_position
-	player.direction_name = direction_name
+	player.current_direction = direction_name
