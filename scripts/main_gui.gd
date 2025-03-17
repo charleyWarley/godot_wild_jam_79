@@ -1,19 +1,24 @@
 extends CanvasLayer
 
+
+
+@export var gui_head: TextureRect
+@export var gui_expression: TextureRect
+
 var is_background_up := false
 
 @onready var gui_background := $GUIBackground
 @onready var overlap_detect_area := $"../SubViewportContainer/LevelViewport/OverlapDetectArea"
-@onready var gui_face := $GUIFace
+
 
 func _on_overlapping_body_entered(body: Node2D) -> void:
 	if body.name != "Player": return
-	gui_face.modulate = Color(1,1,1,0.3)
+	gui_head.modulate = Color(1,1,1,0.3)
 
 
 func _on_overlapping_body_exited(body: Node2D) -> void:
 	if body.name != "Player": return
-	gui_face.modulate = Color(1,1,1,1)
+	gui_head.modulate = Color(1,1,1,1)
 
 
 func _ready() -> void:
@@ -42,4 +47,3 @@ func show_background() -> void:
 func connect_signals() -> void:
 	overlap_detect_area.connect("body_entered", _on_overlapping_body_entered)
 	overlap_detect_area.connect("body_exited", _on_overlapping_body_exited)
-	

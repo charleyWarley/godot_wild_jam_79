@@ -19,32 +19,26 @@ texture = ExtResource("1_j6w7d")
 
 [node name="PlieOfBones" parent="." instance=ExtResource("1_paw1w")]
 z_index = 1
-y_sort_enabled = true
 position = Vector2(277, 185)
 
 [node name="PlieOfBones2" parent="." instance=ExtResource("1_paw1w")]
 z_index = 1
-y_sort_enabled = true
 position = Vector2(563, 196)
 
 [node name="PlieOfBones3" parent="." instance=ExtResource("1_paw1w")]
 z_index = 1
-y_sort_enabled = true
 position = Vector2(589, 184)
 
 [node name="PlieOfBones4" parent="." instance=ExtResource("1_paw1w")]
 z_index = 1
-y_sort_enabled = true
 position = Vector2(53, 218)
 
 [node name="PlieOfBones5" parent="." instance=ExtResource("1_paw1w")]
 z_index = 1
-y_sort_enabled = true
 position = Vector2(91, 66)
 
 [node name="PlieOfBones6" parent="." instance=ExtResource("1_paw1w")]
 z_index = 1
-y_sort_enabled = true
 position = Vector2(86, 252)
 
 [node name="Player" parent="." instance=ExtResource("2_paw1w")]

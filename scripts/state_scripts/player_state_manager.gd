@@ -13,7 +13,7 @@ var current_state : PlayerState
 
 func _ready() -> void:
 	current_state = STATES["idle"]
-	for state in STATES.values():
+	for state: PlayerState in STATES.values():
 		state.ANIMATION_PLAYER = ANIMATION_PLAYER
 		state.PLAYER = PLAYER
 

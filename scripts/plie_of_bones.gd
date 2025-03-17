@@ -1,9 +1,11 @@
 extends StaticBody2D
 
+const EXPR_TIME: float = 0.65
 
 @export var bone_index : int
 
 var current_volume := 0
+var expression_manager: Node = GlobalNodes.expressions_manager
 
 @onready var PARTICLES := $CPUParticles2D
 @onready var SPRITE := $Sprite2D
@@ -22,6 +24,8 @@ func _process(_delta: float) -> void:
 
 
 func interact() -> bool:
+	expression_manager.change_expression(Expressions.Expr.EXCITED, EXPR_TIME)
+	
 	destroy()
 	return true
 
