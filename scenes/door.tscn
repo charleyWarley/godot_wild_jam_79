@@ -1,0 +1,90 @@
+[gd_scene load_steps=10 format=3 uid="uid://1r8k1a74oe1u"]
+
+[ext_resource type="Script" uid="uid://f7dqkybnico2" path="res://scripts/door.gd" id="1_83dcw"]
+[ext_resource type="Texture2D" uid="uid://460c4ueog1lt" path="res://images/door1-sheet.png" id="1_uvdjg"]
+[ext_resource type="Texture2D" uid="uid://ttk26yhb3rxe" path="res://images/door_top.png" id="2_83dcw"]
+[ext_resource type="AudioStream" uid="uid://6chuokkrh5u1" path="res://audio/door_sound.mp3" id="4_la1wf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jkvx3"]
+size = Vector2(32, 64)
+
+[sub_resource type="Animation" id="Animation_la1wf"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DoorSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_18pbm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DoorSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_q5w8r"]
+resource_name = "close"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DoorSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t58dd"]
+_data = {
+&"RESET": SubResource("Animation_18pbm"),
+&"close": SubResource("Animation_q5w8r"),
+&"open": SubResource("Animation_la1wf")
+}
+
+[node name="Door" type="Area2D"]
+script = ExtResource("1_83dcw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_jkvx3")
+
+[node name="DoorSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_uvdjg")
+hframes = 2
+frame = 1
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 64)
+
+[node name="WallTopSprite" type="Sprite2D" parent="."]
+z_index = 2
+texture = ExtResource("2_83dcw")
+region_rect = Rect2(32, 0, 32, 7)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_t58dd")
+}
+autoplay = "close"
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_la1wf")
+volume_db = -10.0
+pitch_scale = 2.56
