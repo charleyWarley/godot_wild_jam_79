@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://byxmealmysvo1" path="res://scripts/state_scripts/player_states/idle_player_state.gd" id="6_tuyoq"]
 [ext_resource type="Script" uid="uid://djtgqh8aqpaos" path="res://scripts/state_scripts/player_states/walking_player_state.gd" id="7_fjrip"]
 [ext_resource type="Script" uid="uid://cowvhq7itr8ok" path="res://scripts/state_scripts/player_states/interacting_player_state.gd" id="8_smehm"]
-[ext_resource type="Script" uid="uid://cqpl40ls1x25v" path="res://scripts/input_manager.gd" id="9_ur7pv"]
+[ext_resource type="Script" path="res://scripts/input_manager.gd" id="9_ur7pv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ur7pv"]
 radius = 4.0
