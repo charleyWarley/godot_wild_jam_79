@@ -34,11 +34,11 @@ func initialize_planter() -> void:
 
 
 func interact() -> bool:
-	check_slots("moss")
+	check_slots(&"moss")
 	return false
 
 
-func check_slots(plant_type: String) -> void:
+func check_slots(plant_type: StringName) -> void:
 	var slot_index := 0
 	for slot : String in slots:
 		if slot == "":
