@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://stiu7y2uxayb" path="res://scripts/main.gd" id="1_sugp2"]
 [ext_resource type="Script" uid="uid://cesdklylfa7l5" path="res://scripts/screen_manager.gd" id="2_0wfyh"]
 [ext_resource type="Texture2D" uid="uid://pgm2jn7c1vtp" path="res://images/owo_ui_face.png" id="4_jyhfs"]
-[ext_resource type="Script" uid="uid://se430onmmfm3" path="res://scripts/main_gui.gd" id="4_tbgi4"]
+[ext_resource type="Script" path="res://scripts/main_gui.gd" id="4_tbgi4"]
 
 [node name="main" type="Control"]
 layout_mode = 3
@@ -30,6 +30,7 @@ size = Vector2i(640, 360)
 render_target_update_mode = 4
 
 [node name="TitleMenu" parent="SubViewportContainer/LevelViewport" instance=ExtResource("1_o5qli")]
+color = Color(0.211765, 0.313726, 0.364706, 1)
 
 [node name="ScreenManager" type="Node" parent="."]
 process_mode = 3
