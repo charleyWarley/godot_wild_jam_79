@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=3 uid="uid://bufjyjef1lkxe"]
+
+[ext_resource type="Script" uid="uid://cwxxecpt1fmeb" path="res://scripts/level_area.gd" id="1_h5avr"]
+[ext_resource type="PackedScene" uid="uid://bm2ofvhki4b1u" path="res://scenes/area_transition_area.tscn" id="2_uj17x"]
+[ext_resource type="Texture2D" uid="uid://bplkc5fn4tlp0" path="res://images/background2.png" id="3_hab6w"]
+[ext_resource type="PackedScene" uid="uid://7g2isxnwrwpy" path="res://scenes/player.tscn" id="4_q0i21"]
+[ext_resource type="PackedScene" uid="uid://7mrkonnxbxse" path="res://scenes/plie_of_bones.tscn" id="5_lo00w"]
+
+[node name="LevelArea4" type="Node2D"]
+script = ExtResource("1_h5avr")
+
+[node name="AreaTransitionArea" parent="." instance=ExtResource("2_uj17x")]
+position = Vector2(321, 406)
+enter_from = 0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_hab6w")
+flip_v = true
+metadata/_edit_lock_ = true
+
+[node name="Player" parent="." instance=ExtResource("4_q0i21")]
+position = Vector2(396, 363)
+
+[node name="Bones" type="Node2D" parent="."]
+
+[node name="PileOfBones" parent="Bones" instance=ExtResource("5_lo00w")]
+position = Vector2(244, 215)
+bone_index = 16
+
+[node name="PileOfBones7" parent="Bones" instance=ExtResource("5_lo00w")]
+position = Vector2(369, 163)
+bone_index = 17
+
+[node name="PileOfBones8" parent="Bones" instance=ExtResource("5_lo00w")]
+position = Vector2(332, 149)
+bone_index = 18
+
+[node name="PileOfBones9" parent="Bones" instance=ExtResource("5_lo00w")]
+position = Vector2(287, 150)
+bone_index = 19
+
+[node name="PileOfBones10" parent="Bones" instance=ExtResource("5_lo00w")]
+position = Vector2(264, 181)
+bone_index = 20
+
+[node name="PileOfBones2" parent="Bones" instance=ExtResource("5_lo00w")]
+position = Vector2(314, 201)
+bone_index = 21
+
+[node name="PileOfBones3" parent="Bones" instance=ExtResource("5_lo00w")]
+position = Vector2(272, 243)
+bone_index = 22
+
+[node name="PileOfBones4" parent="Bones" instance=ExtResource("5_lo00w")]
+position = Vector2(364, 246)
+bone_index = 23
+
+[node name="PileOfBones5" parent="Bones" instance=ExtResource("5_lo00w")]
+position = Vector2(373, 207)
+bone_index = 24
+
+[node name="PileOfBones6" parent="Bones" instance=ExtResource("5_lo00w")]
+position = Vector2(317, 256)
+bone_index = 25

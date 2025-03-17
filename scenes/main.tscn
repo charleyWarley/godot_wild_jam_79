@@ -1,0 +1,68 @@
+[gd_scene load_steps=7 format=3 uid="uid://10sgt5dwu5wi"]
+
+[ext_resource type="PackedScene" uid="uid://dgpd66jdxe4b3" path="res://scenes/title_menu.tscn" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://stiu7y2uxayb" path="res://scripts/main.gd" id="1_sugp2"]
+[ext_resource type="Script" uid="uid://cesdklylfa7l5" path="res://scripts/screen_manager.gd" id="2_0wfyh"]
+[ext_resource type="Texture2D" uid="uid://pgm2jn7c1vtp" path="res://images/owo_ui_face.png" id="4_jyhfs"]
+[ext_resource type="Script" uid="uid://se430onmmfm3" path="res://scripts/main_gui.gd" id="4_tbgi4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tbgi4"]
+size = Vector2(85, 78)
+
+[node name="main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sugp2")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LevelViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+audio_listener_enable_2d = true
+size = Vector2i(640, 360)
+render_target_update_mode = 4
+
+[node name="OverlapDetectArea" type="Area2D" parent="SubViewportContainer/LevelViewport"]
+position = Vector2(-1, 296)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SubViewportContainer/LevelViewport/OverlapDetectArea"]
+position = Vector2(16.5, 53)
+shape = SubResource("RectangleShape2D_tbgi4")
+
+[node name="TitleMenu" parent="SubViewportContainer/LevelViewport" instance=ExtResource("1_o5qli")]
+
+[node name="ScreenManager" type="Node" parent="."]
+process_mode = 3
+script = ExtResource("2_0wfyh")
+
+[node name="MainGUI" type="CanvasLayer" parent="."]
+script = ExtResource("4_tbgi4")
+
+[node name="GUIBackground" type="ColorRect" parent="MainGUI"]
+modulate = Color(1, 1, 1, 0.580392)
+custom_minimum_size = Vector2(0, 32)
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.400698, 0.400698, 0.400698, 1)
+
+[node name="GUIFace" type="TextureRect" parent="MainGUI"]
+offset_left = -1.0
+offset_top = 296.0
+offset_right = 63.0
+offset_bottom = 360.0
+texture = ExtResource("4_jyhfs")
