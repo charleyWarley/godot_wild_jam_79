@@ -37,35 +37,29 @@ y_sort_enabled = true
 
 [node name="PlieOfBones" parent="Bones" instance=ExtResource("2_y00nn")]
 z_index = 1
-y_sort_enabled = true
 position = Vector2(277, 185)
 
 [node name="PlieOfBones2" parent="Bones" instance=ExtResource("2_y00nn")]
 z_index = 1
-y_sort_enabled = true
 position = Vector2(563, 196)
 bone_index = 1
 
 [node name="PlieOfBones3" parent="Bones" instance=ExtResource("2_y00nn")]
 z_index = 1
-y_sort_enabled = true
 position = Vector2(589, 184)
 bone_index = 2
 
 [node name="PlieOfBones4" parent="Bones" instance=ExtResource("2_y00nn")]
 z_index = 1
-y_sort_enabled = true
 position = Vector2(53, 218)
 bone_index = 3
 
 [node name="PlieOfBones5" parent="Bones" instance=ExtResource("2_y00nn")]
 z_index = 1
-y_sort_enabled = true
-position = Vector2(91, 66)
+position = Vector2(47, 84)
 bone_index = 4
 
 [node name="PlieOfBones6" parent="Bones" instance=ExtResource("2_y00nn")]
 z_index = 1
-y_sort_enabled = true
 position = Vector2(86, 252)
 bone_index = 5

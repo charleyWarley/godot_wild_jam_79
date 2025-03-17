@@ -13,6 +13,7 @@ y_sort_enabled = true
 script = ExtResource("1_3vuh2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(-0.375, 54)
 shape = SubResource("RectangleShape2D_fedb8")
 
@@ -25,3 +26,34 @@ modulate = Color(1, 1, 1, 0.690196)
 z_as_relative = false
 position = Vector2(0, 49)
 texture = ExtResource("2_fedb8")
+
+[node name="PlanterSlots" type="Node2D" parent="."]
+
+[node name="Slot1" type="Sprite2D" parent="PlanterSlots"]
+z_index = 1
+vframes = 2
+frame = 1
+
+[node name="Slot2" type="Sprite2D" parent="PlanterSlots"]
+z_index = 1
+position = Vector2(0, 19)
+vframes = 2
+frame = 1
+
+[node name="Slot3" type="Sprite2D" parent="PlanterSlots"]
+z_index = 1
+position = Vector2(0, 38)
+vframes = 2
+frame = 1
+
+[node name="Slot4" type="Sprite2D" parent="PlanterSlots"]
+z_index = 1
+position = Vector2(0, 57)
+vframes = 2
+frame = 1
+
+[node name="Slot5" type="Sprite2D" parent="PlanterSlots"]
+z_index = 1
+position = Vector2(0, 76)
+vframes = 2
+frame = 1
