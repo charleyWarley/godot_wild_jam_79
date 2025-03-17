@@ -16,7 +16,7 @@ func _on_body_entered(body: Node2D) -> void:
 		Direction.BOTTOM: new_player_position.y = 363
 		Direction.LEFT: new_player_position.x = 1
 		Direction.RIGHT: new_player_position.x = 641
-	GlobalNodes.screen_manager.set_current_screen(next_area_name, new_player_position, body.direction_name)
+	GlobalNodes.screen_manager.set_current_screen(next_area_name, new_player_position, body.current_direction)
 
 
 func _ready() -> void:

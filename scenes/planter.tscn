@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://csoyxcjywe6hg"]
+
+[ext_resource type="Script" uid="uid://cdfr7c6uglfs" path="res://scripts/planter.gd" id="1_3vuh2"]
+[ext_resource type="Texture2D" uid="uid://4wxi6c0l1565" path="res://images/planter.png" id="1_86cwo"]
+[ext_resource type="Texture2D" uid="uid://c5r5x7clcoirk" path="res://images/planter_shadow.png" id="2_fedb8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fedb8"]
+size = Vector2(50.75, 109.5)
+
+[node name="Planter" type="StaticBody2D"]
+z_index = 1
+y_sort_enabled = true
+script = ExtResource("1_3vuh2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.375, 54)
+shape = SubResource("RectangleShape2D_fedb8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_86cwo")
+offset = Vector2(0, 49)
+
+[node name="Shadow" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.690196)
+z_as_relative = false
+position = Vector2(0, 49)
+texture = ExtResource("2_fedb8")
