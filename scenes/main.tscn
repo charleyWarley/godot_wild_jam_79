@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://10sgt5dwu5wi"]
+[gd_scene load_steps=10 format=3 uid="uid://10sgt5dwu5wi"]
 
 [ext_resource type="PackedScene" uid="uid://dgpd66jdxe4b3" path="res://scenes/title_menu.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://stiu7y2uxayb" path="res://scripts/main.gd" id="1_sugp2"]
@@ -7,9 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://bo23a2md2xxeg" path="res://images/ui_faces/empty_head.png" id="5_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://bqnnq07eifbmr" path="res://images/ui_faces/default.png" id="6_tefeu"]
 [ext_resource type="Script" path="res://scenes/expression_manager.gd" id="7_o6xl0"]
+[ext_resource type="Texture2D" uid="uid://buhrolp1p2no7" path="res://images/resource_menu_prototype.png" id="8_tipki"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tbgi4"]
-size = Vector2(85, 78)
+size = Vector2(64, 64)
 
 [node name="main" type="Control"]
 layout_mode = 3
@@ -20,7 +21,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_sugp2")
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+[node name="ScreenHolder" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -28,47 +29,38 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="LevelViewport" type="SubViewport" parent="SubViewportContainer"]
-handle_input_locally = false
-audio_listener_enable_2d = true
-size = Vector2i(640, 360)
-render_target_update_mode = 4
+[node name="TitleMenu" parent="ScreenHolder" instance=ExtResource("1_o5qli")]
+layout_mode = 1
 
-[node name="OverlapDetectArea" type="Area2D" parent="SubViewportContainer/LevelViewport"]
-position = Vector2(-1, 296)
+[node name="OverlapDetectArea" type="Area2D" parent="."]
+position = Vector2(32, 327)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SubViewportContainer/LevelViewport/OverlapDetectArea"]
-position = Vector2(16.5, 53)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OverlapDetectArea"]
 shape = SubResource("RectangleShape2D_tbgi4")
 
-[node name="TitleMenu" parent="SubViewportContainer/LevelViewport" instance=ExtResource("1_o5qli")]
-color = Color(0.211765, 0.313726, 0.364706, 1)
-
-[node name="ScreenManager" type="Node" parent="."]
+[node name="ScreenManager" type="Node" parent="." node_paths=PackedStringArray("MAIN_GUI", "SCREEN_HOLDER")]
 process_mode = 3
 script = ExtResource("2_0wfyh")
+MAIN_GUI = NodePath("../MainGUI")
+SCREEN_HOLDER = NodePath("../ScreenHolder")
 
-[node name="MainGUI" type="CanvasLayer" parent="." node_paths=PackedStringArray("gui_head", "gui_expression")]
+[node name="MainGUI" type="CanvasLayer" parent="." node_paths=PackedStringArray("gui_head", "gui_expression", "overlap_detect_area", "gui_background")]
 script = ExtResource("4_tbgi4")
 gui_head = NodePath("GUIHead")
 gui_expression = NodePath("GUIHead/GUIExpression")
+overlap_detect_area = NodePath("../OverlapDetectArea")
+gui_background = NodePath("GUIResourceMenu")
 
-[node name="GUIBackground" type="ColorRect" parent="MainGUI"]
-modulate = Color(1, 1, 1, 0.580392)
-custom_minimum_size = Vector2(0, 32)
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_bottom = 32.0
-grow_horizontal = 2
-grow_vertical = 0
-color = Color(0.400698, 0.400698, 0.400698, 1)
+[node name="ExpressionManager" type="Node" parent="MainGUI" node_paths=PackedStringArray("gui_expression")]
+script = ExtResource("7_o6xl0")
+blink0_time = 0.1
+blink1_time = 0.3
+blink2_time = 0.1
+gui_expression = NodePath("../GUIHead/GUIExpression")
 
 [node name="GUIHead" type="TextureRect" parent="MainGUI"]
-offset_left = -1.0
 offset_top = 296.0
-offset_right = 255.0
+offset_right = 256.0
 offset_bottom = 552.0
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("5_tbgi4")
@@ -84,9 +76,9 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="ExpressionManager" type="Node" parent="MainGUI" node_paths=PackedStringArray("gui_expression")]
-script = ExtResource("7_o6xl0")
-blink0_time = 0.1
-blink1_time = 0.3
-blink2_time = 0.1
-gui_expression = NodePath("../GUIHead/GUIExpression")
+[node name="GUIResourceMenu" type="TextureRect" parent="MainGUI"]
+texture_filter = 2
+offset_left = 497.0
+offset_right = 1137.0
+offset_bottom = 360.0
+texture = ExtResource("8_tipki")

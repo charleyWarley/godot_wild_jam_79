@@ -33,28 +33,23 @@ z_as_relative = false
 [node name="Slot1" type="Sprite2D" parent="PlanterSlots"]
 z_index = 1
 vframes = 2
-frame = 1
 
 [node name="Slot2" type="Sprite2D" parent="PlanterSlots"]
 z_index = 1
 position = Vector2(0, 19)
 vframes = 2
-frame = 1
 
 [node name="Slot3" type="Sprite2D" parent="PlanterSlots"]
 z_index = 1
 position = Vector2(0, 38)
 vframes = 2
-frame = 1
 
 [node name="Slot4" type="Sprite2D" parent="PlanterSlots"]
 z_index = 1
 position = Vector2(0, 57)
 vframes = 2
-frame = 1
 
 [node name="Slot5" type="Sprite2D" parent="PlanterSlots"]
 z_index = 1
 position = Vector2(0, 76)
 vframes = 2
-frame = 1

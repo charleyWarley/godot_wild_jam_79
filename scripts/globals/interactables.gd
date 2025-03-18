@@ -2,7 +2,7 @@ extends Node
 
 const PLANT_TEXTURES : Dictionary[String, Variant]= {
 	"moss": preload("uid://bdfav7jl36syd"),
-	"bamboo": preload("uid://dokkyjl80v2dp")
+	"bamboo": preload("uid://dokkyjl80v2dp"),
 }
 
 var bones : Array[int] = [
@@ -10,8 +10,13 @@ var bones : Array[int] = [
 	6, 7, 8, 9, 10, 11, 12, 13, 14, 15, #area2
 	16, 17, 18, 19, 20, 21, 22, 23, 24, 25, #area4
 	]
-
 var planters : Array[Array] = []
+
+var bones_collected : int = 0
+var moss_harvested : int = 0
+var bamboo_harvested : int = 0
+
+
 
 func _ready() -> void:
 	for i in range(6):
@@ -19,7 +24,8 @@ func _ready() -> void:
 		for j in range(5):
 			current_planter.append({
 				"plant_type": "", 
-				"offset": get_random_offset()
+				"offset": get_random_offset(),
+				"time_planted": 0.0,
 				})
 		planters.append(current_planter)
 
