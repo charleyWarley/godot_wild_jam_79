@@ -20,7 +20,7 @@ enter_from = 0
 position = Vector2(321, -11)
 next_area_name = "area4"
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("3_kuacd")
@@ -33,44 +33,44 @@ position = Vector2(201, 81)
 z_index = 1
 y_sort_enabled = true
 
-[node name="PileOfBones" parent="Bones" instance=ExtResource("5_5ibjn")]
-position = Vector2(35, 36)
+[node name="PileOfBones6" parent="Bones" instance=ExtResource("5_5ibjn")]
+position = Vector2(620, 64)
 bone_index = 6
 
 [node name="PileOfBones7" parent="Bones" instance=ExtResource("5_5ibjn")]
-position = Vector2(494, 24)
+position = Vector2(613, 189)
 bone_index = 7
 
 [node name="PileOfBones8" parent="Bones" instance=ExtResource("5_5ibjn")]
-position = Vector2(457, 30)
+position = Vector2(617, 116)
 bone_index = 8
 
 [node name="PileOfBones9" parent="Bones" instance=ExtResource("5_5ibjn")]
-position = Vector2(30, 324)
+position = Vector2(566, 107)
 bone_index = 9
 
 [node name="PileOfBones10" parent="Bones" instance=ExtResource("5_5ibjn")]
-position = Vector2(26, 272)
+position = Vector2(587, 82)
 bone_index = 10
 
-[node name="PileOfBones2" parent="Bones" instance=ExtResource("5_5ibjn")]
-position = Vector2(38, 61)
+[node name="PileOfBones11" parent="Bones" instance=ExtResource("5_5ibjn")]
+position = Vector2(585, 147)
 bone_index = 11
 
-[node name="PileOfBones3" parent="Bones" instance=ExtResource("5_5ibjn")]
-position = Vector2(21, 86)
+[node name="PileOfBones12" parent="Bones" instance=ExtResource("5_5ibjn")]
+position = Vector2(625, 231)
 bone_index = 12
 
-[node name="PileOfBones4" parent="Bones" instance=ExtResource("5_5ibjn")]
-position = Vector2(610, 19)
+[node name="PileOfBones13" parent="Bones" instance=ExtResource("5_5ibjn")]
+position = Vector2(535, 158)
 bone_index = 13
 
-[node name="PileOfBones5" parent="Bones" instance=ExtResource("5_5ibjn")]
-position = Vector2(619, 53)
+[node name="PileOfBones14" parent="Bones" instance=ExtResource("5_5ibjn")]
+position = Vector2(622, 149)
 bone_index = 14
 
-[node name="PileOfBones6" parent="Bones" instance=ExtResource("5_5ibjn")]
-position = Vector2(615, 85)
+[node name="PileOfBones15" parent="Bones" instance=ExtResource("5_5ibjn")]
+position = Vector2(592, 207)
 bone_index = 15
 
 [node name="Planters" type="Node2D" parent="."]
@@ -78,31 +78,31 @@ z_index = 1
 y_sort_enabled = true
 position = Vector2(-19, -55)
 
-[node name="Planter" parent="Planters" instance=ExtResource("6_kuacd")]
+[node name="Planter0" parent="Planters" instance=ExtResource("6_kuacd")]
 z_index = 0
-position = Vector2(123, 89)
+position = Vector2(49, 263)
+
+[node name="Planter1" parent="Planters" instance=ExtResource("6_kuacd")]
+z_index = 0
+position = Vector2(181, 130)
+planter_index = 1
 
 [node name="Planter2" parent="Planters" instance=ExtResource("6_kuacd")]
 z_index = 0
-position = Vector2(123, 275)
-planter_index = 1
+position = Vector2(50, 127)
+planter_index = 2
 
 [node name="Planter3" parent="Planters" instance=ExtResource("6_kuacd")]
 z_index = 0
-position = Vector2(253, 186)
-planter_index = 2
+position = Vector2(317, 130)
+planter_index = 3
+
+[node name="Planter4" parent="Planters" instance=ExtResource("6_kuacd")]
+z_index = 0
+position = Vector2(318, 264)
+planter_index = 4
 
 [node name="Planter5" parent="Planters" instance=ExtResource("6_kuacd")]
 z_index = 0
-position = Vector2(444, 191)
-planter_index = 3
-
-[node name="Planter7" parent="Planters" instance=ExtResource("6_kuacd")]
-z_index = 0
-position = Vector2(569, 275)
-planter_index = 4
-
-[node name="Planter8" parent="Planters" instance=ExtResource("6_kuacd")]
-z_index = 0
-position = Vector2(569, 89)
+position = Vector2(181, 263)
 planter_index = 5

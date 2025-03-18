@@ -3,7 +3,6 @@ extends ColorRect
 @export var PLAY_BUTTON : Button
 @export var SETTINGS_BUTTON : Button
 
-
 var button_index := 0
 
 

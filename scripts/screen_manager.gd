@@ -8,14 +8,14 @@ const SCREENS := {
 	"area4": preload("res://scenes/level_area4.tscn"),
 	}
 
-var current_screen : Node
+@export var MAIN_GUI : CanvasLayer
+@export var SCREEN_HOLDER : Control
 
-@onready var MAIN_GUI := $"../MainGUI"
-@onready var VIEWPORT := $"../SubViewportContainer/LevelViewport"
+var current_screen : Node
 
 
 func _ready() -> void:
-	current_screen = $"../SubViewportContainer/LevelViewport/TitleMenu"
+	current_screen = SCREEN_HOLDER.get_child(0)
 	GlobalNodes.screen_manager = self
 
 
@@ -30,6 +30,6 @@ func set_current_screen(screen_name: String, player_position: Vector2, direction
 	current_screen.queue_free()
 	current_screen = null
 	var new_screen : Node2D = SCREENS[screen_name].instantiate()
-	VIEWPORT.call_deferred("add_child", new_screen)
+	SCREEN_HOLDER.call_deferred("add_child", new_screen)
 	current_screen = new_screen
 	new_screen.call_deferred("set_player_position", player_position, direction_name)

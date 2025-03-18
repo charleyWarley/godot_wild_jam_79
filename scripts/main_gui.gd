@@ -1,14 +1,11 @@
 extends CanvasLayer
 
-
-
 @export var gui_head: TextureRect
 @export var gui_expression: TextureRect
+@export var overlap_detect_area : Area2D
+@export var gui_background : TextureRect
 
 var is_background_up := false
-
-@onready var gui_background := $GUIBackground
-@onready var overlap_detect_area := $"../SubViewportContainer/LevelViewport/OverlapDetectArea"
 
 
 func _on_overlapping_body_entered(body: Node2D) -> void:
@@ -37,11 +34,11 @@ func _process(_delta: float) -> void:
 
 func hide_background() -> void:
 	var tween := get_tree().create_tween()
-	tween.tween_property(gui_background, "position", Vector2(0.0, 360.0), 0.5)
+	tween.tween_property(gui_background, "position", Vector2(497.0, 0.0), 0.4)
 
 func show_background() -> void:
 	var tween := get_tree().create_tween()
-	tween.tween_property(gui_background, "position", Vector2(0.0, 328.0), 0.5)
+	tween.tween_property(gui_background, "position", Vector2(0.0, 0.0), 0.4)
 
 
 func connect_signals() -> void:
