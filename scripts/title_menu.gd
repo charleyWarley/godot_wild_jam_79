@@ -7,7 +7,7 @@ var button_index := 0
 
 
 func _on_play_button_pressed() -> void:
-	GlobalNodes.screen_manager.set_current_screen("area1", Vector2(293, 204), "down")
+	GlobalNodes.screen_manager.set_current_screen("foyer", Vector2(293, 204), "down")
 
 
 func _on_settings_button_pressed() -> void:

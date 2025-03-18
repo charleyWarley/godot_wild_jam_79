@@ -13,9 +13,9 @@ y_sort_enabled = true
 script = ExtResource("1_3vuh2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(-0.375, 54)
 shape = SubResource("RectangleShape2D_fedb8")
+debug_color = Color(0.969464, 0, 0.461187, 0.42)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_86cwo")

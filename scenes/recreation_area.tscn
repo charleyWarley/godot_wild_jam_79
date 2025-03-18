@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://7g2isxnwrwpy" path="res://scenes/player.tscn" id="2_a74jy"]
 [ext_resource type="Texture2D" uid="uid://dtv32826fnb6t" path="res://images/background3.png" id="3_4qga3"]
 
-[node name="Area3" type="Node2D"]
+[node name="RecreationArea" type="Node2D"]
 script = ExtResource("1_4qga3")
 
 [node name="Background" type="TextureRect" parent="."]
@@ -19,7 +19,7 @@ metadata/_edit_lock_ = true
 [node name="AreaTransitionArea" parent="." instance=ExtResource("1_a74jy")]
 position = Vector2(-30, 156)
 rotation = -1.5708
-next_area_name = "area1"
+next_area_name = "foyer"
 enter_from = 3
 
 [node name="Player" parent="." instance=ExtResource("2_a74jy")]
