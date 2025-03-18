@@ -7,8 +7,8 @@ var current_direction : String
 
 static var player_state_priority := {
 	"idle": 1,
-	"walk": 2,
-	"interact": 3
+	"walking": 2,
+	"interacting": 3
 }
 
 #higher numbers are sorted as higher priority when multiple states are compared

@@ -2,6 +2,8 @@ extends StaticBody2D
 
 const BAMBOO_MATURE_TIME := 10.0
 const MOSS_MATURE_TIME := 30.0
+const YOUNG_FRAME := 0
+const MATURE_FRAME := 1
 
 @export var planter_index : int
 
@@ -21,13 +23,15 @@ func initialize_planter() -> void:
 	for slot : Dictionary in slots:
 		if slot["plant_type"] != "":
 			var slot_sprite : Sprite2D = PLANTER_SLOTS.get_child(slot_index)
+			
 			slot_sprite.texture = Interactables.PLANT_TEXTURES[slot["plant_type"]]
 			
 			var is_matured : bool = check_grow_time(slot["time_planted"], slot["plant_type"])
-			if is_matured: slot_sprite.frame = 1
-			else: slot_sprite.frame = 0
+			if is_matured: slot_sprite.frame = MATURE_FRAME
+			else: slot_sprite.frame = YOUNG_FRAME
 			
-			if slot["plant_type"] == "bamboo": slot_sprite.offset = slot["offset"]
+			if slot["plant_type"] == "bamboo": 
+				slot_sprite.offset = slot["offset"]
 		
 		slot_index += 1
 
@@ -48,13 +52,13 @@ func interact() -> bool:
 	var plant_type : StringName = plant_types.pick_random()
 	attempt_plant(plant_type)
 	#attempt_harvest()
-	return false #returns false because interactable is not destroyed
+	return false #returns false because interactable is not destroyed after interacting
 
 
 func attempt_plant(plant_type: StringName) -> void:
 	var slot_index := 0
 	for slot : Dictionary in slots:
-		if slot["plant_type"] != "": #skip full slot
+		if slot["plant_type"] != "": #skip to next slot if this slot is full
 			slot_index += 1
 			continue 
 		
