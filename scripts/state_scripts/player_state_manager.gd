@@ -44,6 +44,6 @@ func transition_to(new_state_name: StringName) -> void:
 		return
 	if current_state != STATES[new_state_name]:
 		current_state.exit()
-	print(new_state_name)
+	#print(new_state_name)
 	current_state = STATES[new_state_name]
 	current_state.enter()

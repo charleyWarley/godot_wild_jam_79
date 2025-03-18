@@ -2,9 +2,14 @@
  godot wild jam 79 game
 
 ## Charley
-- best babe
-- lead designer
+- lead game designer
+- sound designer
+- character artist
+- environment artist
+
 
 ## Jaret
 - lead programmer
-- professional 😔
+- UI face artist
+- cutscene artist maybe
+- voice actor maybe

@@ -1,11 +1,11 @@
 extends Node
 
 const SCREENS := {
-	"title_menu": preload("res://scenes/title_menu.tscn"),
-	"area1": preload("res://scenes/level_area1.tscn"),
-	"area2": preload("res://scenes/level_area2.tscn"),
-	"area3": preload("res://scenes/level_area3.tscn"),
-	"area4": preload("res://scenes/level_area4.tscn"),
+	"title_menu": preload("uid://dgpd66jdxe4b3"),
+	"foyer": preload("uid://mqeuqgx0io73"),
+	"cafeteria": preload("uid://db6bms7uummap"),
+	"garden": preload("uid://bufjyjef1lkxe"),
+	"recreation": preload("uid://bc3nj2uecysjv"),
 	}
 
 @export var MAIN_GUI : CanvasLayer

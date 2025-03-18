@@ -6,13 +6,13 @@ const PLANT_TEXTURES : Dictionary[String, Variant]= {
 }
 
 var bones : Array[int] = [
-	0, 1, 2, 3, 4, 5, #area1
-	6, 7, 8, 9, 10, 11, 12, 13, 14, 15, #area2
-	16, 17, 18, 19, 20, 21, 22, 23, 24, 25, #area4
+	0, 1, 2, 3, 4, 5, #foyer
+	6, 7, 8, 9, 10, 11, 12, 13, 14, 15, #cafeteria
+	16, 17, 18, 19, 20, 21, 22, 23, 24, 25, #garden
 	]
-var planters : Array[Array] = []
+var planters : Array[Array] = [] #there are 6 planters with 5 slots each ~ 30 slots to grow
 
-var bones_collected : int = 0
+var bones_collected : int = 0 #change to minerals harvested?
 var moss_harvested : int = 0
 var bamboo_harvested : int = 0
 

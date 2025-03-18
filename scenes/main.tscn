@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://se430onmmfm3" path="res://scripts/main_gui.gd" id="4_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://bo23a2md2xxeg" path="res://images/ui_faces/empty_head.png" id="5_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://bqnnq07eifbmr" path="res://images/ui_faces/default.png" id="6_tefeu"]
-[ext_resource type="Script" uid="uid://com63rr3058iv" path="res://scenes/expression_manager.gd" id="7_o6xl0"]
+[ext_resource type="Script" uid="uid://com63rr3058iv" path="res://scripts/expression_manager.gd" id="7_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://buhrolp1p2no7" path="res://images/resource_menu_prototype.png" id="8_tipki"]
 [ext_resource type="Script" uid="uid://dwsqbwa08mwit" path="res://scripts/popup_manager.gd" id="9_85g3d"]
 
