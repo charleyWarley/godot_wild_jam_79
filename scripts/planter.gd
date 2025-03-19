@@ -47,23 +47,49 @@ func check_grow_time(time_planted: float, plant_type: StringName) -> bool:
 
 
 func interact() -> bool:
-	var plant_types : Array[StringName] = [&"bamboo", &"moss"]
-	randomize()
-	var plant_type : StringName = plant_types.pick_random()
-	attempt_plant(plant_type)
-	#attempt_harvest()
+	var did_harvest : bool = attempt_harvest()
+	if !did_harvest: #if nothing was harvested, attempt to plant something
+		#a random plant is picked to be planted ~ will change later
+		var plant_types : Array[StringName] = [&"bamboo", &"moss"] 
+		randomize()
+		var plant_type : StringName = plant_types.pick_random()
+		attempt_plant(plant_type)
 	return false #returns false because interactable is not destroyed after interacting
+
+
+func attempt_harvest() -> bool:
+	#harvests every matured plant at once
+	var will_harvest := false
+	var slot_index := 0
+	for slot : Dictionary in slots:
+		var slot_sprite : Sprite2D = PLANTER_SLOTS.get_child(slot_index)
+		if slot["plant_type"] == "": #skip empty slot attempt harvesting from the next slot
+			slot_index += 1
+			continue
+		if slot_sprite.frame == MATURE_FRAME: #full slot contains matured plant
+			#to-do: add floating icons for plant harvested
+			will_harvest = true
+			match slot["plant_type"]:
+				"moss": 
+					Interactables.moss_harvested += 1
+					print("moss harvested ", Interactables.moss_harvested)
+				"bamboo": 
+					Interactables.bamboo_harvested += 1
+					print("bamboo harvested ", Interactables.bamboo_harvested)
+			empty_slot(slot_index, slot_sprite)
+		slot_index += 1
+	return will_harvest
 
 
 func attempt_plant(plant_type: StringName) -> void:
 	var slot_index := 0
+	#checks each planter slot until if finds an empty one that can be planted in
 	for slot : Dictionary in slots:
 		if slot["plant_type"] != "": #skip to next slot if this slot is full
 			slot_index += 1
 			continue 
 		
 		var slot_sprite : Sprite2D = PLANTER_SLOTS.get_child(slot_index)
-		
 		slot["plant_type"] = plant_type
 		slot_sprite.texture = Interactables.PLANT_TEXTURES[plant_type]
 		
@@ -76,23 +102,9 @@ func attempt_plant(plant_type: StringName) -> void:
 		break
 
 
-func attempt_harvest() -> void:
-	var slot_index := 0
-	for slot : Dictionary in slots:
-		var slot_sprite : Sprite2D = PLANTER_SLOTS.get_child(slot_index)
-		if slot["plant_type"] == "": #skip empty slot
-			slot_index += 1
-			continue
-		if slot_sprite.frame == 1: #full slot contains matured plant
-			match slot["plant_type"]:
-				"moss": Interactables.moss_harvested += 1
-				"bamboo": Interactables.bamboo_harvested += 1
-			slot_sprite.texture = null
-			empty_slot(slot_index)
-		slot_index += 1
-
-
-func empty_slot(slot_index: int) -> void:
+func empty_slot(slot_index: int, slot_sprite: Sprite2D) -> void:
+	slot_sprite.texture = null
+	slot_sprite.frame = YOUNG_FRAME
 	Interactables.planters[planter_index][slot_index]["plant_type"] = ""
 	Interactables.planters[planter_index][slot_index]["time_planted"] = 0.0
 	slots[slot_index] = Interactables.planters[planter_index][slot_index]
