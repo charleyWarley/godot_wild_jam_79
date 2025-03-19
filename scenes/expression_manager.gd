@@ -9,7 +9,6 @@ extends Node
 
 var is_blinking: bool = false
 
-
 func _ready() -> void:
 	GlobalNodes.expressions_manager = self
 
