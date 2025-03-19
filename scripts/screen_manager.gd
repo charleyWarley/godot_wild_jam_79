@@ -1,21 +1,21 @@
 extends Node
 
 const SCREENS := {
-	"title_menu": preload("res://scenes/title_menu.tscn"),
-	"area1": preload("res://scenes/level_area1.tscn"),
-	"area2": preload("res://scenes/level_area2.tscn"),
-	"area3": preload("res://scenes/level_area3.tscn"),
-	"area4": preload("res://scenes/level_area4.tscn"),
+	"title_menu": preload("uid://dgpd66jdxe4b3"),
+	"foyer": preload("uid://mqeuqgx0io73"),
+	"cafeteria": preload("uid://db6bms7uummap"),
+	"garden": preload("uid://bufjyjef1lkxe"),
+	"recreation": preload("uid://bc3nj2uecysjv"),
 	}
+
+@export var MAIN_GUI : CanvasLayer
+@export var SCREEN_HOLDER : Control
 
 var current_screen : Node
 
-@onready var MAIN_GUI := $"../MainGUI"
-@onready var VIEWPORT := $"../SubViewportContainer/LevelViewport"
-
 
 func _ready() -> void:
-	current_screen = $"../SubViewportContainer/LevelViewport/TitleMenu"
+	current_screen = SCREEN_HOLDER.get_child(0)
 	GlobalNodes.screen_manager = self
 
 
@@ -30,6 +30,6 @@ func set_current_screen(screen_name: String, player_position: Vector2, direction
 	current_screen.queue_free()
 	current_screen = null
 	var new_screen : Node2D = SCREENS[screen_name].instantiate()
-	VIEWPORT.call_deferred("add_child", new_screen)
+	SCREEN_HOLDER.call_deferred("add_child", new_screen)
 	current_screen = new_screen
 	new_screen.call_deferred("set_player_position", player_position, direction_name)

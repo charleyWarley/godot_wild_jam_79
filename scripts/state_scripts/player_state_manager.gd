@@ -38,11 +38,12 @@ func update_current_direction(input: InputPackage) -> void:
 		Vector2.UP: PLAYER.current_direction = "up"
 
 
-func transition_to(new_state_name: String) -> void:
+func transition_to(new_state_name: StringName) -> void:
 	if not new_state_name in STATES:
 		push_warning(new_state_name, " state does not exist")
 		return
 	if current_state != STATES[new_state_name]:
 		current_state.exit()
+	#print(new_state_name)
 	current_state = STATES[new_state_name]
 	current_state.enter()

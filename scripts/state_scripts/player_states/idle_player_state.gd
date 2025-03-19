@@ -9,13 +9,10 @@ const DECELERATION := 160
 	#doesn't transition to blink while in sleep state
 
 func check_relevance(input: InputPackage) -> String:
-	if not "idle" in input.actions:
-		if "interact" in input.actions:
-			return "interacting"
-		else:
-			return "walking"
-	else:
+	input.actions.sort_custom(player_state_priority_sort)
+	if input.actions[0] == "idle":
 		return "continue"
+	return input.actions[0]
 
 
 func enter() -> void:

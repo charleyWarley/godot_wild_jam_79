@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://7g2isxnwrwpy"]
+[gd_scene load_steps=23 format=3 uid="uid://7g2isxnwrwpy"]
 
 [ext_resource type="Script" uid="uid://bk0jyermwahb0" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://pg0p5g3lha3i" path="res://images/robot_sprite_sheet.png" id="2_qhqgy"]
@@ -8,7 +8,8 @@
 [ext_resource type="Script" uid="uid://byxmealmysvo1" path="res://scripts/state_scripts/player_states/idle_player_state.gd" id="6_tuyoq"]
 [ext_resource type="Script" uid="uid://djtgqh8aqpaos" path="res://scripts/state_scripts/player_states/walking_player_state.gd" id="7_fjrip"]
 [ext_resource type="Script" uid="uid://cowvhq7itr8ok" path="res://scripts/state_scripts/player_states/interacting_player_state.gd" id="8_smehm"]
-[ext_resource type="Script" path="res://scripts/input_manager.gd" id="9_ur7pv"]
+[ext_resource type="Script" uid="uid://cqpl40ls1x25v" path="res://scripts/input_manager.gd" id="9_ur7pv"]
+[ext_resource type="Script" uid="uid://gspsp1dhtr5o" path="res://scripts/camera_manager.gd" id="10_y4r1p"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ur7pv"]
 radius = 4.0
@@ -550,6 +551,7 @@ script = ExtResource("3_qhqgy")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
 position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_g2els")
+debug_color = Color(0.969464, 0, 0.461187, 0.42)
 
 [node name="SFXManager" type="Node2D" parent="."]
 script = ExtResource("4_dqkch")
@@ -564,6 +566,16 @@ volume_db = -13.312
 libraries = {
 &"": SubResource("AnimationLibrary_tuyoq")
 }
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = 0
+limit_top = 0
+limit_right = 640
+limit_bottom = 360
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_top_margin = 0.0
 
 [node name="PlayerStateManager" type="Node" parent="."]
 script = ExtResource("5_qlg0r")
@@ -585,3 +597,8 @@ script = ExtResource("8_smehm")
 
 [node name="InputManager" type="Node" parent="."]
 script = ExtResource("9_ur7pv")
+
+[node name="CameraManager" type="Node" parent="." node_paths=PackedStringArray("PLAYER", "CAMERA")]
+script = ExtResource("10_y4r1p")
+PLAYER = NodePath("..")
+CAMERA = NodePath("../Camera2D")

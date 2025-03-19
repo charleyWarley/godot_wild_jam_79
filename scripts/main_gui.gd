@@ -1,24 +1,24 @@
 extends CanvasLayer
 
-
+const TRANSLUCENT_COLOR := Color(1,1,1,0.3)
+const OPAQUE_COLOR := Color(1,1,1,1)
 
 @export var gui_head: TextureRect
 @export var gui_expression: TextureRect
+@export var overlap_detect_area : Area2D
+@export var gui_background : TextureRect
 
 var is_background_up := false
-
-@onready var gui_background := $GUIBackground
-@onready var overlap_detect_area := $"../SubViewportContainer/LevelViewport/OverlapDetectArea"
 
 
 func _on_overlapping_body_entered(body: Node2D) -> void:
 	if body.name != "Player": return
-	gui_head.modulate = Color(1,1,1,0.3)
+	gui_head.modulate = TRANSLUCENT_COLOR
 
 
 func _on_overlapping_body_exited(body: Node2D) -> void:
 	if body.name != "Player": return
-	gui_head.modulate = Color(1,1,1,1)
+	gui_head.modulate = OPAQUE_COLOR
 
 
 func _ready() -> void:
@@ -37,12 +37,15 @@ func _process(_delta: float) -> void:
 
 func hide_background() -> void:
 	var tween := get_tree().create_tween()
-	tween.tween_property(gui_background, "position", Vector2(0.0, 360.0), 0.5)
+	tween.tween_property(gui_background, "position", Vector2(497.0, 0.0), 0.4)
+	await tween.finished
+	gui_background.visible = false
 
 func show_background() -> void:
+	gui_background.visible = true
 	var tween := get_tree().create_tween()
-	tween.tween_property(gui_background, "position", Vector2(0.0, 328.0), 0.5)
-
+	tween.tween_property(gui_background, "position", Vector2(0.0, 0.0), 0.4)
+	
 
 func connect_signals() -> void:
 	overlap_detect_area.connect("body_entered", _on_overlapping_body_entered)

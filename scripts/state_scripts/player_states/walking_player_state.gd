@@ -5,13 +5,10 @@ const SPEED = 160.0
 
 
 func check_relevance(input: InputPackage) -> String:
-	if "idle" in input.actions:
-		if "interact" in input.actions:
-			return "interacting"
-		else:
-			return "idle"
-	else: 
+	input.actions.sort_custom(player_state_priority_sort)
+	if input.actions[0] == "walking":
 		return "continue"
+	return input.actions[0]
 
 
 func enter() -> void:

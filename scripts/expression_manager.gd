@@ -12,6 +12,11 @@ var is_blinking: bool = false
 func _ready() -> void:
 	GlobalNodes.expressions_manager = self
 
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("blink"):
+		start_blink()
+
+
 func change_expression(expr: Expressions.Expr, time_sec: float = -1, random: bool = true, index: int = 0) -> void:
 	if time_sec <= 0: # <=0 means switch to expr without switching back automatically
 		Expressions.current_expression = expr #overwrite previous curr expr

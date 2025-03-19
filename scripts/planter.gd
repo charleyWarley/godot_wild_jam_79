@@ -1,18 +1,13 @@
 extends StaticBody2D
 
-const PLANT_TEXTURES : Dictionary[String, Variant]= {
-	"moss": preload("uid://bdfav7jl36syd"),
-}
+const BAMBOO_MATURE_TIME := 10.0
+const MOSS_MATURE_TIME := 30.0
+const YOUNG_FRAME := 0
+const MATURE_FRAME := 1
 
 @export var planter_index : int
 
-var slots : Array = [
-	"",
-	"",
-	"",
-	"",
-	"",
-]
+var slots : Array[Dictionary] = []
 
 @onready var PLANTER_SLOTS := $PlanterSlots
 
@@ -25,26 +20,91 @@ func _ready() -> void:
 func initialize_planter() -> void:
 	slots = Interactables.planters[planter_index]
 	var slot_index := 0
-	for slot : String in slots:
-		if slot == "":
-			return
-		else:
-			PLANTER_SLOTS.get_child(slot_index).texture = PLANT_TEXTURES[slots[slot_index]]
-			slot_index += 1
+	for slot : Dictionary in slots:
+		if slot["plant_type"] != "":
+			var slot_sprite : Sprite2D = PLANTER_SLOTS.get_child(slot_index)
+			
+			slot_sprite.texture = Interactables.PLANT_TEXTURES[slot["plant_type"]]
+			
+			var is_matured : bool = check_grow_time(slot["time_planted"], slot["plant_type"])
+			if is_matured: slot_sprite.frame = MATURE_FRAME
+			else: slot_sprite.frame = YOUNG_FRAME
+			
+			if slot["plant_type"] == "bamboo": 
+				slot_sprite.offset = slot["offset"]
+		
+		slot_index += 1
+
+
+func check_grow_time(time_planted: float, plant_type: StringName) -> bool:
+	var time_grown: float = Time.get_unix_time_from_system() - time_planted
+	var mature_time : float
+	match plant_type:
+		"moss": mature_time = MOSS_MATURE_TIME
+		"bamboo": mature_time = BAMBOO_MATURE_TIME
+	var is_matured := true if time_grown >= mature_time else false
+	return is_matured
 
 
 func interact() -> bool:
-	check_slots("moss")
-	return false
+	var did_harvest : bool = attempt_harvest()
+	if !did_harvest: #if nothing was harvested, attempt to plant something
+		#a random plant is picked to be planted ~ will change later
+		var plant_types : Array[StringName] = [&"bamboo", &"moss"] 
+		randomize()
+		var plant_type : StringName = plant_types.pick_random()
+		attempt_plant(plant_type)
+	return false #returns false because interactable is not destroyed after interacting
 
 
-func check_slots(plant_type: String) -> void:
+func attempt_harvest() -> bool:
+	#harvests every matured plant at once
+	var will_harvest := false
 	var slot_index := 0
-	for slot : String in slots:
-		if slot == "":
-			slots[slot_index] = plant_type
-			PLANTER_SLOTS.get_child(slot_index).texture = PLANT_TEXTURES[plant_type]
-			break
-		else:
+	for slot : Dictionary in slots:
+		var slot_sprite : Sprite2D = PLANTER_SLOTS.get_child(slot_index)
+		if slot["plant_type"] == "": #skip empty slot attempt harvesting from the next slot
 			slot_index += 1
-			
+			continue
+		if slot_sprite.frame == MATURE_FRAME: #full slot contains matured plant
+			#to-do: add floating icons for plant harvested
+			will_harvest = true
+			match slot["plant_type"]:
+				"moss": 
+					Interactables.moss_harvested += 1
+					print("moss harvested ", Interactables.moss_harvested)
+				"bamboo": 
+					Interactables.bamboo_harvested += 1
+					print("bamboo harvested ", Interactables.bamboo_harvested)
+			empty_slot(slot_index, slot_sprite)
+		slot_index += 1
+	return will_harvest
+
+
+func attempt_plant(plant_type: StringName) -> void:
+	var slot_index := 0
+	#checks each planter slot until if finds an empty one that can be planted in
+	for slot : Dictionary in slots:
+		if slot["plant_type"] != "": #skip to next slot if this slot is full
+			slot_index += 1
+			continue 
+		
+		var slot_sprite : Sprite2D = PLANTER_SLOTS.get_child(slot_index)
+		slot["plant_type"] = plant_type
+		slot_sprite.texture = Interactables.PLANT_TEXTURES[plant_type]
+		
+		slot["time_planted"] = Time.get_unix_time_from_system()
+		
+		if plant_type == "bamboo": slot_sprite.offset = slot["offset"]
+		else: slot_sprite.offset = Vector2.ZERO
+		
+		slot_index += 1
+		break
+
+
+func empty_slot(slot_index: int, slot_sprite: Sprite2D) -> void:
+	slot_sprite.texture = null
+	slot_sprite.frame = YOUNG_FRAME
+	Interactables.planters[planter_index][slot_index]["plant_type"] = ""
+	Interactables.planters[planter_index][slot_index]["time_planted"] = 0.0
+	slots[slot_index] = Interactables.planters[planter_index][slot_index]
