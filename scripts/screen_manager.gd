@@ -1,11 +1,12 @@
 extends Node
 
-const SCREENS := {
+const SCREENS : Dictionary[String, PackedScene]= {
 	"title_menu": preload("uid://dgpd66jdxe4b3"),
 	"foyer": preload("uid://mqeuqgx0io73"),
 	"cafeteria": preload("uid://db6bms7uummap"),
 	"garden": preload("uid://bufjyjef1lkxe"),
 	"recreation": preload("uid://bc3nj2uecysjv"),
+	"hall": preload("uid://sws66g7ti2eu"),
 	}
 
 @export var MAIN_GUI : CanvasLayer

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drc8g4dqwda3x"
-path="res://.godot/imported/cafeteria_background.png-2c8899c057d4a18ff329e88a737a7dff.ctex"
+uid="uid://40u00v4xys7v"
+path="res://.godot/imported/hall_background.png-b6ae164e53a5274c33b9d02267003501.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/cafeteria_background.png"
-dest_files=["res://.godot/imported/cafeteria_background.png-2c8899c057d4a18ff329e88a737a7dff.ctex"]
+source_file="res://images/backgrounds/hall_background.png"
+dest_files=["res://.godot/imported/hall_background.png-b6ae164e53a5274c33b9d02267003501.ctex"]
 
 [params]
 
